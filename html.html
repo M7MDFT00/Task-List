@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Task List.avif" type="image/x-icon">
+</head>
+<body>
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌓</button>
+    <header>
+        <h1 id="app-title">Task List</h1>
+        <p id="author-text">Created by M7MDFT</p>
+    </header>
+    <div class="container">
+        <div class="task-input">
+            <input type="text" id="taskInput" placeholder="Enter a new task" onkeypress="handleTaskInputKeyPress(event)">
+            <button onclick="addTask()" id="add-task-btn">Add</button>
+        </div>
+        <ul class="task-list" id="taskList">
+            <li class="empty-message" id="emptyMessage">No tasks yet. Add your first task!</li>
+        </ul>
+        <div class="settings-panel">
+            <h3 id="settings-title">Settings</h3>
+            <div class="settings-options">
+                <button class="settings-btn" onclick="toggleLanguage()" id="language-btn">Switch to Arabic</button>
+                <button class="settings-btn" onclick="toggleCreationTime()" id="creation-time-btn">Hide Creation Time</button>
+                <button class="settings-btn" onclick="toggleCompletionTime()" id="completion-time-btn">Hide Completion Time</button>
+                <button class="settings-btn" onclick="showClearAllDialog()" id="clear-all-btn">Clear All Tasks</button>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</div>
+
+    <!-- Clear All Dialog -->
+    <dialog id="clearAllDialog">
+        <div class="dialog-content">
+            <p id="dialog-message">Are you sure you want to delete ALL tasks?</p>
+            <div class="dialog-buttons">
+                <button class="dialog-cancel" onclick="document.getElementById('clearAllDialog').close()">Cancel</button>
+                <button class="dialog-confirm" onclick="clearAllTasks()">Delete All</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
